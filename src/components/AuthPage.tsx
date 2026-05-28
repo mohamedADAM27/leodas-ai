@@ -56,7 +56,15 @@ export default function AuthPage() {
         body: JSON.stringify({ email, password, name })
       });
       
-      const result = await response.json();
+      let result: any = {};
+      try {
+        result = await response.json();
+      } catch (jsonErr) {
+        if (!response.ok) {
+          throw new Error(`HTTP Error ${response.status}: Secure workspace gateway is temporarily unavailable.`);
+        }
+        throw new Error("Invalid payload format returned from security credentials server.");
+      }
       
       if (!response.ok) {
         throw new Error(result.error || "Authentication failed. Please verify credentials.");

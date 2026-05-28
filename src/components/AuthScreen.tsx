@@ -38,7 +38,15 @@ export default function AuthScreen() {
         body: JSON.stringify(body)
       });
 
-      const data = await resp.json();
+      let data: any = {};
+      try {
+        data = await resp.json();
+      } catch (jsonErr) {
+        if (!resp.ok) {
+          throw new Error(`HTTP Error ${resp.status}: Secure workspace gateway is temporarily offline.`);
+        }
+        throw new Error("Invalid payload format returned from security credentials gate.");
+      }
 
       if (!resp.ok) {
         throw new Error(data.error || 'Authentication challenge failed.');
