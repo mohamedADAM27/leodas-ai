@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Silkscreen:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-cyber: "Silkscreen", "Space Grotesk", monospace;
+
+  /* App Specific Colors */
+  --color-app-bg: var(--app-background);
+  --color-app-surface: var(--app-surface);
+  --color-app-card: var(--app-card);
+  --color-app-border: var(--app-border);
+  --color-app-primary: var(--app-primary);
+  --color-app-secondary: var(--app-secondary);
+  --color-app-muted: var(--app-muted);
+  --color-app-text: var(--app-text);
+  --color-app-subtext: var(--app-subtext);
+}
+
+/* Base Styles */
+:root {
+  font-family: var(--font-sans);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Cyber Blue Theme */
+.cyber-blue {
+  --app-background: #01040b;
+  --app-surface: #040814;
+  --app-card: #070e20;
+  --app-border: #102144;
+  --app-primary: #0066fe;
+  --app-secondary: #00b8ff;
+  --app-muted: #0a142c;
+  --app-text: #ffffff;
+  --app-subtext: #8295b4;
+  --app-glow: 0 4px 24px rgba(0, 102, 254, 0.25);
+}
+
+/* Matte White Apple Theme */
+.matte-white {
+  --app-background: #f4f4f6;
+  --app-surface: #ffffff;
+  --app-card: #fafafa;
+  --app-border: #e4e4e7;
+  --app-primary: #181c25;
+  --app-secondary: #525964;
+  --app-muted: #f1f2f5;
+  --app-text: #181c25;
+  --app-subtext: #525964;
+  --app-glow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+/* Matte Black Premium Theme */
+.matte-black {
+  --app-background: #09090b;
+  --app-surface: #121214;
+  --app-card: #18181b;
+  --app-border: #27272a;
+  --app-primary: #f4f4f5;
+  --app-secondary: #a1a1aa;
+  --app-muted: #1e1e21;
+  --app-text: #f4f4f5;
+  --app-subtext: #71717a;
+  --app-glow: 0 4px 12px rgba(255, 255, 255, 0.01);
+}
+
+/* Cyber theme specific font elements */
+.cyber-blue .brand-heading {
+  font-family: "Silkscreen", var(--font-cyber), monospace;
+  text-shadow: 0 0 12px rgba(0, 102, 254, 0.5);
+  letter-spacing: 0.04em;
+}
+
+/* Custom animated grids for themes */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+}
+
+/* Custom shadow effects */
+.premium-glow {
+  box-shadow: var(--app-glow);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--app-border);
+  border-radius: 999px;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "LEO DAS",
+  "description": "AI Chat Assistant — Powered by Gemini Flash Model",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
